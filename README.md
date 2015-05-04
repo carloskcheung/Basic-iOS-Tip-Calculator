@@ -2,5 +2,4 @@
 
 Tip Calculator using Swift
 
-
-![TipShow](http://imgur.com/zDL8KLr)
+<img src="http://i.imgur.com/zDL8KLr.gif" />
