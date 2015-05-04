@@ -15,7 +15,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var talkingText: UILabel!
     
+    
+//    // Optionally initialize the property to a desired starting value
+//    self.firstView.alpha = 0
+//    self.secondView.alpha = 1
+//    UIView.animateWithDuration(0.4, animations: {
+//    // This causes first view to fade in and second view to fade out
+//    self.firstView.alpha = 1
+//    self.secondView.alpha = 0
+//    })
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +41,18 @@ class ViewController: UIViewController {
 
 
     @IBAction func onEditingChanged(sender: AnyObject) {
+        
+        
         var tipPercentages = [0.18, 0.2, 0.22]
         var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        switch tipPercentage {
+            case 0.18:
+                self.talkingText.text = "Are you sure?"
+            case 0.2:
+                self.talkingText.text = "That's good!"
+            default:
+                self.talkingText.text = "Awesome!"
+        }
         
         
         var billAmount = NSString(string: billField.text).doubleValue
@@ -45,6 +65,7 @@ class ViewController: UIViewController {
     
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
+        self.talkingText.text = "Pick a tip!"
     }
     
 }
