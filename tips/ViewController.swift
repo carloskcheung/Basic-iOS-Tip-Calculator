@@ -16,22 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var talkingText: UILabel!
+    @IBOutlet weak var secondView: UIView!
     
     
-//    // Optionally initialize the property to a desired starting value
-//    self.firstView.alpha = 0
-//    self.secondView.alpha = 1
-//    UIView.animateWithDuration(0.4, animations: {
-//    // This causes first view to fade in and second view to fade out
-//    self.firstView.alpha = 1
-//    self.secondView.alpha = 0
-//    })
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +37,12 @@ class ViewController: UIViewController {
 
     @IBAction func onEditingChanged(sender: AnyObject) {
         
+        // Optionally initialize the property to a desired starting value
+//        self.secondView.alpha = 0
+        UIView.animateWithDuration(0.8, animations: {
+            // This causes first view to fade in and second view to fade out
+            self.secondView.alpha = 1
+        })
         
         var tipPercentages = [0.18, 0.2, 0.22]
         var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
